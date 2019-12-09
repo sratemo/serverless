@@ -1,11 +1,21 @@
 'use strict';
 
-module.exports.handler = async (event, ctx, done) => {
+const express = require('express');
+const http = require('serverless-http');
 
- done(null, {
-  statusCode: 200,
-  headers: 'application/json',
-  body: JSON.stringify({ message: 'Hello' })
+const app = express();
+
+app.get('/', (req, res) => {
+ res.json({
+  message: 'hello'
+ });
+
+ app.get('/todo', (req, res) => {
+  res.json( {
+   message: "toDos"
+  });
  })
+})
 
-};
+
+module.exports.handler = http(app);
