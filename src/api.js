@@ -1,21 +1,23 @@
 'use strict';
 
-const express = require('express');
-const http = require('serverless-http');
+const express = require('express'); 
 
 const app = express();
 
 app.get('/', (req, res) => {
  res.json({
-  message: 'hello'
+  message: 'hello',
  });
 
- app.get('/todo', (req, res) => {
-  res.json( {
-   message: "toDos"
+ app.get('/todos', (req, res) => {
+  const todos = [
+   { id: 1, name: 'Clean up' }, { id: 2, name: 'Cook' }
+  ]
+  res.json({
+   data: todos
   });
  })
 })
 
 
-module.exports.handler = http(app);
+module.exports = app;

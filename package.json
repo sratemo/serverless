@@ -4,13 +4,16 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "dev": "sls offline start --port 4500"
+    "dev": "sls offline start --port 4500",
+    "test": "jest"
   },
   "author": "Sam Ratemo",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "jest": "^24.9.0",
     "serverless-http": "^2.3.0",
-    "serverless-offline": "^5.12.1"
+    "serverless-offline": "^5.12.1",
+    "supertest": "^4.0.2"
   }
 }
